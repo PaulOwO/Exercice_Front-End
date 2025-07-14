@@ -3,13 +3,16 @@ import type { Title } from '#components';
 
 import { toast } from 'vue-sonner'
 
-const utils = useUtils(); //composable test//
-utils.sayHello;
-utils.sayGoodbye;
+const {cartItems,remove} = useUtils(); //composable test//
 
 
 
 
+const switchTheme = () => {
+  document.documentElement.classList.toggle(
+  "dark",
+);
+}
 
 
 const handleToast = () => {
@@ -25,7 +28,7 @@ const handleToast = () => {
 
 <template>
   <div>
-    <div class="flex pl-5 gap-2 items-center bg-gray-500">
+    <div class="flex pl-5 h-[100px] gap-2 items-center bg-gray-500">
       <img class="" src='/assets/logo.png' width="50" height="auto" />
       LudoShop
       <!-- can use chadcn separator -->
@@ -38,7 +41,8 @@ const handleToast = () => {
             Contact</Button>
         </NuxtLink>
       <div class="flex gap-10 grow items-center justify-end pr-2">
-        <Switch />
+
+        <Switch @update:model-value="switchTheme()"/>
 
 
         <Popover>
@@ -52,8 +56,8 @@ const handleToast = () => {
 
               <div class="grid gap-2">
 
-                <div v-for="cartItem in cartItems">{{ cartItem }}<Button>X</Button>
-                  <!-- utils.cartItems.splice(0, 1) -->
+                <div v-for="cartItem in cartItems">{{ cartItem.name }}<Button @click="remove">X</Button>
+                  
                 </div>
 
               </div>

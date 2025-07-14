@@ -10,11 +10,11 @@ definePageMeta({
    Contact page
   </h1>
 
-  <div class="flex justify-center items-center gap-3"> <NuxtLink to="/pdf/CV_PB.pdf" external>
+  <div class="flex justify-center items-center gap-3"> <NuxtLink target="_blank" to="/pdf/CV_PB.pdf" external>
     My CV
   </NuxtLink>
 
-  <NuxtLink to="https://paulbreuza.wixsite.com/paul-breuza">
+  <NuxtLink target="_blank" to="https://paulbreuza.wixsite.com/paul-breuza">
     My Portfolio
   </NuxtLink>
   </div>
