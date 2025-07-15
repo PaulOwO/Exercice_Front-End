@@ -1,0 +1,1 @@
+export { default as defaultTitle } from './DefaultTitle.vue'
