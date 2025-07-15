@@ -12,13 +12,18 @@ const item5 = new item("Love Letter", 11.95, description5, '/image/5.jpg');
 
 const items = [item1, item2, item3, item4, item5];
 
-const handleToast = () => {
-  toast('Not Available', {
+const handleToast = (message: string) => {
+  toast(message, {
     action: {
-      label: 'X',
+      label: "X",
       onClick: () => console.log('Undo'),
     },
   })
+}
+
+const addToCart = () => {
+  add(items[currentItem.value]);
+  handleToast(`Added "${items[currentItem.value].name}" to cart`);
 }
 </script>
 
@@ -41,7 +46,7 @@ const handleToast = () => {
           </div>
           <div class="flex pt-5 grow items-center justify-end pr-3">
             <div class="flex grow justify-start"> {{ getTotalPrice() }} €</div>
-            <Button variant="outline" @click="handleToast()">
+            <Button variant="outline" @click="handleToast('Not available')">
               Buy
             </Button>
           </div>
@@ -80,7 +85,7 @@ const handleToast = () => {
         </div>
       </div>
       <div>
-        <Button class="text-3xl w-40 h-20" v-on:click="add(items[currentItem])">add to cart</Button>
+        <Button class="text-3xl w-40 h-20" @click="addToCart()">Add to cart</Button>
       </div>
     </div>
   </div>

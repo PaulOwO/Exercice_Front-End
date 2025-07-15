@@ -2,7 +2,7 @@ export const useUtils = () => {
   const cartItems = ref<item[]>([]);
   const remove = (index: number) => cartItems.value.splice(index, 1);
   const add = (item: item) => {
-    cartItems.value.push(item);$$
+    cartItems.value.push(item);
   }
   const getTotalPrice = () => {
     let TotalPrice = 0;
